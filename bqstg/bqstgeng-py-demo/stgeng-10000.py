@@ -173,9 +173,6 @@ class StgInstTaskHandler(StgInstTaskHandlerBase):
                 "shm://RISK.PubChannel.Trade/PosInfo/StgId/10000/StgInstId/2",
             )
 
-        if stg_inst_info.stg_inst_id == 2:
-            pass
-
     def on_stg_inst_timer(self, stg_inst_info, timer_name):
         if timer_name == "TestRealOrder":
             print(f"Timer {timer_name} was triggered")
@@ -183,7 +180,7 @@ class StgInstTaskHandler(StgInstTaskHandlerBase):
 
         if timer_name == "TestSimedOrder":
             print(f"Timer {timer_name} was triggered")
-            for i in range(0, 10000):
+            for _ in range(0, 10000):
                 self.__test_simed_order(stg_inst_info)
 
         return
